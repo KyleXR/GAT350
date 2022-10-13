@@ -1,4 +1,6 @@
 #pragma once
+#include <glad/glad.h> 
+#include <SDL.h> 
 #include "Math/Vector2.h"
 #include "Math/Color.h"
 #include "Math/Matrix3x3.h"
@@ -23,7 +25,7 @@ namespace neu
 		void Initialized();
 		void Shutdown();
 
-		void CreateWindow(const char* name, int width, int height);
+		void CreateWindow(const char* name, int width, int height, bool fullscreen);
 		void BeginFrame();
 		void EndFrame();
 		void SetClearColor(const Color& color) { m_clearColor = color; }
@@ -34,7 +36,7 @@ namespace neu
 		void DrawPoint(const Vector2& v, const Color& color);
 
 		int GetWidth() { return m_width; }
-		int GetHieght() { return m_hieght; }
+		int GetHieght() { return m_height; }
 
 		void Draw(std::shared_ptr<Texture> texture, const Vector2& position, float angle = 0, const Vector2& scale = Vector2{1,1}, const Vector2& registration = Vector2{0.5f, 0.5f});
 		void Draw(std::shared_ptr<Texture> texture, const Transform& transform, const Vector2& registration = Vector2{ 0.5f, 0.5f });
@@ -48,7 +50,7 @@ namespace neu
 
 	private:
 		int m_width = 0;
-		int m_hieght = 0;
+		int m_height = 0;
 
 		Matrix3x3 m_view;
 		Matrix3x3 m_viewport;
@@ -57,6 +59,8 @@ namespace neu
 
 		SDL_Renderer* m_renderer = nullptr;
 		SDL_Window* m_window = nullptr;
+
+		SDL_GLContext m_context;
 
 	};
 

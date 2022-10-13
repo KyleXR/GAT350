@@ -23,31 +23,46 @@ namespace neu
 
 	void Renderer::Shutdown()
 	{
-		SDL_DestroyRenderer(m_renderer);
+		SDL_GL_DeleteContext(m_context);
 		SDL_DestroyWindow(m_window);
-		IMG_Quit();
 		TTF_Quit();
+		IMG_Quit();
 	}
 
-	void Renderer::CreateWindow(const char* name, int width, int height)
+	void Renderer::CreateWindow(const char* name, int width, int height, bool fullscreen)
 	{
 		m_width = width;
-		m_hieght = height;
+		m_height = height;
 
+		int flags = (fullscreen) ? SDL_WINDOW_FULLSCREEN : (SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 
-		m_window = SDL_CreateWindow(name, 100, 100, width, height, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
-		m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED);
+		m_window = SDL_CreateWindow(name, 100, 100, width, height, SDL_WINDOW_OPENGL | flags);
+
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+
+		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+		SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
+		SDL_GL_SetSwapInterval(1);
+
+		m_context = SDL_GL_CreateContext(m_window);
+		gladLoadGL();
+
+		glViewport(0, 0, width, height);
+		glEnable(GL_DEPTH_TEST);
+		glDepthFunc(GL_LESS);
 	}
 
 	void Renderer::BeginFrame()
 	{
-		SDL_SetRenderDrawColor(m_renderer, 0, 0, 55, 255);
-		SDL_RenderClear(m_renderer);
+		glClearColor(0, 0, 0, 1);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
 	void Renderer::EndFrame()
 	{
-		SDL_RenderPresent(m_renderer);
+		SDL_GL_SwapWindow(m_window);
 	}
 
 	void Renderer::DrawLine(float x1, float y1, float x2, float y2)

@@ -29,8 +29,8 @@ namespace neu
 
 	void Engine::Initialize()
 	{
-		g_renderer.Initialize();
-		g_inputSystem.Initialize();
+		g_renderer.Initialized();
+		g_inputSystem.Initialized();
 		g_audioSystem.Initialize();
 		g_resources.Initialize();
 		g_physicsSystem.Initialize();

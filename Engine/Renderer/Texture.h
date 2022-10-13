@@ -1,6 +1,7 @@
 #pragma once 
 #include "Math/Vector2.h" 
 #include "Resource/Resource.h"
+#include "Renderer.h"
 #include <string> 
 
 struct SDL_Texture;
@@ -25,6 +26,9 @@ namespace neu
 		friend class Renderer;
 
 	private:
-		SDL_Texture* m_texture = nullptr;
+		GLuint m_texture = 0;
+		GLenum m_target = GL_TEXTURE_2D;
+		GLuint m_unit = GL_TEXTURE0;
+		//SDL_Texture* m_texture = nullptr;
 	};
 }
