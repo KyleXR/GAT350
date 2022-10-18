@@ -11,7 +11,7 @@ struct SDL_Window;
 
 namespace neu
 {
-	class Tecture;
+	class Texture;
 	struct Transform;
 	struct Rect;
 
