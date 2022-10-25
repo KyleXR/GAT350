@@ -25,6 +25,7 @@ namespace neu
 		REGISTER_CLASS(SpriteAnimComponent);
 		REGISTER_CLASS(TilemapComponent);
 		REGISTER_CLASS(CameraComponent);
+		REGISTER_CLASS(CameraController);
 	}
 
 	void Engine::Initialize()

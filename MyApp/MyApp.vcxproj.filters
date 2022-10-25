@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\Assets">
+      <UniqueIdentifier>{9f766aaa-f341-47da-acd9-b8b2bc6d565f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Assets\Materials">
+      <UniqueIdentifier>{19d3329a-6045-4f2b-992e-3f81fbe6317c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Assets\Shaders">
+      <UniqueIdentifier>{9052cf6e-baba-4d91-bbfa-c8ab2ae2b646}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Assets\Scenes">
+      <UniqueIdentifier>{6e9b7fcf-4baa-4180-a0c1-cabaefb7161a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -20,17 +32,26 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Build\Assets\Shaders\basic.frag">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\basic.vert">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\basic.prog">
-      <Filter>Resource Files</Filter>
+    <None Include="..\Build\Assets\Scenes\Basic.scn">
+      <Filter>Resource Files\Assets\Scenes</Filter>
     </None>
     <None Include="..\Build\Assets\Materials\box.mtrl">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Assets\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\spot.mtrl">
+      <Filter>Resource Files\Assets\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic.vert">
+      <Filter>Resource Files\Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic.prog">
+      <Filter>Resource Files\Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\basic.frag">
+      <Filter>Resource Files\Assets\Shaders</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\ogre.mtrl">
+      <Filter>Resource Files\Assets\Materials</Filter>
     </None>
   </ItemGroup>
 </Project>

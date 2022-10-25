@@ -45,7 +45,7 @@ namespace neu
             auto fshader = g_resources.Get<neu::Shader>(fragment_shader, (void*)GL_FRAGMENT_SHADER);
             AddShader(fshader);
         }
-
+        Link();
         return true;
     }
 

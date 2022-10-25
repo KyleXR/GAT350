@@ -4,6 +4,7 @@
 #include "Math/Vector2.h"
 #include "Math/Color.h"
 #include "Math/Matrix3x3.h"
+#include "Math/MathUtils.h"
 #include "Texture.h"
 
 struct SDL_Renderer;
@@ -36,7 +37,7 @@ namespace neu
 		void DrawPoint(const Vector2& v, const Color& color);
 
 		int GetWidth() { return m_width; }
-		int GetHieght() { return m_height; }
+		int GetHeight() { return m_height; }
 
 		void Draw(std::shared_ptr<Texture> texture, const Vector2& position, float angle = 0, const Vector2& scale = Vector2{1,1}, const Vector2& registration = Vector2{0.5f, 0.5f});
 		void Draw(std::shared_ptr<Texture> texture, const Transform& transform, const Vector2& registration = Vector2{ 0.5f, 0.5f });
@@ -45,15 +46,18 @@ namespace neu
 		friend class Text;
 		friend class Texture;
 
-		void SetViewMatrix(const Matrix3x3& view) { m_view = view; }
-		void SetViewportMatrix(const Matrix3x3& viewport) { m_viewport = viewport; }
+		const glm::mat4 GetProjection() { return m_projection; }
+		void SetProjection(const glm::mat4& projection) { m_projection = projection; }
+
+		const glm::mat4& GetView() { return m_view; }
+		void SetView(const glm::mat4& view) { m_view = view; }
 
 	private:
 		int m_width = 0;
 		int m_height = 0;
 
-		Matrix3x3 m_view;
-		Matrix3x3 m_viewport;
+		glm::mat4 m_view{ 1 };
+		glm::mat4 m_projection{ 1 };
 
 		Color m_clearColor{ 0, 0, 0, 255 };
 

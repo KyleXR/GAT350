@@ -1,5 +1,6 @@
 #include "Scene.h"
 #include "Framework/Factory.h"
+#include "Engine.h"
 #include <algorithm>
 #include <iostream>
 
@@ -24,27 +25,19 @@ namespace neu
 				iter++;
 			}
 		}
-		// Check Collision
-		for (auto iter1 = m_actors.begin(); iter1 != m_actors.end(); iter1++)
-		{
-			for (auto iter2 = m_actors.begin(); iter2 != m_actors.end(); iter2++)
-			{
-				if (iter1 == iter2) continue;
-
-				float radius = (*iter1)->GetRadius() + (*iter2)->GetRadius();
-				float distance = (*iter1)->m_transform.position.Distance((*iter2)->m_transform.position);
-
-				if (distance < radius)
-				{
-					(*iter1)->onCollision((*iter2).get());
-					(*iter2)->onCollision((*iter1).get());
-				}
-			}
-		}
 	}
 
 	void Scene::Draw(Renderer& renderer)
 	{
+		// get camera / set renderer view/projection 
+		auto camera = GetActorFromName("Camera");
+		if (camera)
+		{
+			g_renderer.SetView(camera->GetComponent<CameraComponent>() -> GetView());
+			g_renderer.SetProjection(camera->GetComponent<CameraComponent>() -> GetProjection());
+		}
+
+		// draw actors 
 		for (auto& actor : m_actors)
 		{
 			actor->Draw(renderer);

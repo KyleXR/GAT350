@@ -45,7 +45,7 @@ void neu::PlayerComponent::Update()
         velocity = component->velocity;
     }
 
-    m_owner->m_transform.position += direction * 300 * g_time.deltaTime;
+    //m_owner->m_transform.position += direction * 300 * g_time.deltaTime;
 
     if (neu::g_inputSystem.GetKeyState(neu::key_space) == neu::InputSystem::State::Held)
     {
