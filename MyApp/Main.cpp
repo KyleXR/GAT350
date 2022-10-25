@@ -62,19 +62,7 @@ int main(int argc, char** argv)
 	LOG("Window Initialized...");
 
 	// Load Scene 
-	auto scene = std::make_unique<neu::Scene>();
-
-	rapidjson::Document document;
-	bool success = neu::json::Load("scenes/basic.scn", document);
-	if (!success)
-	{
-		LOG("error loading scene file %s.", "scenes/basic.scn");
-	}
-	else
-	{
-		scene->Read(document);
-		scene->Initialize();
-	}
+	auto scene = neu::g_resources.Get<neu::Scene>("scenes/basic.scn");
 
 
 	bool quit = false;
