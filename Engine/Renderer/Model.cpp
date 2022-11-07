@@ -45,6 +45,9 @@ namespace neu
             vertex_t vertex;
 
             vertex.position = { mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z };
+            vertex.normal = { mesh->mNormals[i].x, mesh->mNormals[i].y, mesh->mNormals[i].z };
+            vertex.tangent = { mesh->mTangents[i].x, mesh->mTangents[i].y, mesh->mTangents[i].z };
+
             if (mesh->mTextureCoords[0])
             {
                 vertex.texcoord = { mesh->mTextureCoords[0][i].x, mesh -> mTextureCoords[0][i].y };
@@ -62,6 +65,8 @@ namespace neu
         m_vertexBuffer.CreateVertexBuffer((GLsizei)(sizeof(vertex_t) * vertices.size()), (GLsizei)vertices.size(), vertices.data());
         m_vertexBuffer.SetAttribute(0, 3, sizeof(vertex_t), 0);
         m_vertexBuffer.SetAttribute(1, 2, sizeof(vertex_t), offsetof(vertex_t, texcoord));
+        m_vertexBuffer.SetAttribute(2, 3, sizeof(vertex_t), offsetof(vertex_t, normal));
+        m_vertexBuffer.SetAttribute(3, 3, sizeof(vertex_t), offsetof(vertex_t, tangent));
 
         // get model index vertices 
         std::vector<GLuint> indices;

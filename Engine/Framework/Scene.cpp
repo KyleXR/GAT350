@@ -57,13 +57,13 @@ namespace neu
 		m_actors.clear();
 	}
 
-	bool Scene::Create(const std::string name, ...)
+	bool Scene::Create(const std::string filename, ...)
 	{
 		rapidjson::Document document;
-		bool success = neu::json::Load("scenes/basic.scn", document);
+		bool success = neu::json::Load(filename, document);
 		if (!success)
 		{
-			LOG("error loading scene file %s.", "scenes/basic.scn");
+			LOG("error loading scene file %s.", filename);
 		}
 		else
 		{
