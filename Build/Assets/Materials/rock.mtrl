@@ -1,13 +1,13 @@
 { 
     "program":"shaders/lit/texture.prog",
   "textures": [
-    "textures/ogre_diffuse.bmp",
-    "textures/ogre_normal.bmp"
+    "textures/rocks_diffuse.png",
+    "textures/rocks_normal.jpg"
   ],
     "color":[ 
         1, 
         1, 
-        1 
+        0 
     ],  
     "shininess": 256 
 } 

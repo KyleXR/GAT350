@@ -10,9 +10,9 @@
           0
         ],
         "scale": [
-          1,
-          1,
-          1
+          0.03,
+          0.03,
+          0.03
         ],
         "rotation": [
           0,
@@ -23,8 +23,36 @@
       "components": [
         {
           "type": "ModelComponent",
-          "model_name": "Models/ogre.obj",
-          "material_name": "Materials/ogre.mtrl"
+          "model_name": "Models/tortiose.glb",
+          "material_name": "Materials/tortiose.mtrl"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Rock",
+      "transform": {
+        "position": [
+          0,
+          -0.05,
+          0
+        ],
+        "scale": [
+          20,
+          20,
+          20
+        ],
+        "rotation": [
+          180,
+          0,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/plane.obj",
+          "material_name": "Materials/rock.mtrl"
         }
       ]
     },
@@ -33,20 +61,27 @@
       "name": "Light",
       "transform": {
         "position": [
-          2,
           0,
-          5
-
+          1,
+          2
+        ],
+        "rotation": [
+          0,
+          0,
+          0
         ]
       },
       "components": [
         {
           "type": "LightComponent",
           "color": [
-            1.0,
-            1.0,
-            1.0
-          ]
+            1,
+            1,
+            1
+          ],
+          "type_name": "point",
+          "cutoff": 45.0,
+          "exponent": 50.0
         }
       ]
     },

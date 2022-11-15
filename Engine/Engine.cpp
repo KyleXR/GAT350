@@ -9,6 +9,7 @@ namespace neu
 	ResourceManager g_resources;
 	PhysicsSystem g_physicsSystem;
 	EventManager g_eventManager;
+	GUI g_gui;
 
 
 	void Engine::Register()
@@ -41,11 +42,18 @@ namespace neu
 
 	void Engine::Update()
 	{
+		SDL_Event event;
+		while(SDL_PollEvent(&event))
+		{
+			g_gui.Update(event);
+		}
+
 		g_time.Tick();
 		g_eventManager.Update();
 		g_physicsSystem.Update();
 		g_inputSystem.Update();
 		g_audioSystem.Update();
+
 	}
 
 	void Engine::Shutdown()
@@ -57,6 +65,7 @@ namespace neu
 		g_resources.Shutdown();
 		g_inputSystem.Shutdown();
 		g_audioSystem.Shutdown();
+		g_gui.Shutdown();
 		g_renderer.Shutdown();
 	}
 }

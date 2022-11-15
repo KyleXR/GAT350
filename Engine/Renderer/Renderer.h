@@ -45,6 +45,7 @@ namespace neu
 
 		friend class Text;
 		friend class Texture;
+		friend class GUI;
 
 		const glm::mat4 GetProjection() { return m_projection; }
 		void SetProjection(const glm::mat4& projection) { m_projection = projection; }
@@ -63,7 +64,6 @@ namespace neu
 
 		SDL_Renderer* m_renderer = nullptr;
 		SDL_Window* m_window = nullptr;
-
 		SDL_GLContext m_context;
 
 	};

@@ -1,13 +1,13 @@
 { 
     "program":"shaders/lit/texture.prog",
   "textures": [
-    "textures/ogre_diffuse.bmp",
-    "textures/ogre_normal.bmp"
+    "textures/tortiose-diffuse.png",
+    "textures/tortiose-specular.png"
   ],
     "color":[ 
         1, 
         1, 
         1 
     ],  
-    "shininess": 256 
+    "shininess": 256
 } 

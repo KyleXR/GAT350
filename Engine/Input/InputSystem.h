@@ -57,6 +57,11 @@ namespace neu
 	extern const uint32_t key_right;
 	extern const uint32_t key_escape;
 
+	extern const uint32_t key_W;
+	extern const uint32_t key_A;
+	extern const uint32_t key_S;
+	extern const uint32_t key_D;
+
 	extern const uint32_t button_left;
 	extern const uint32_t button_middle;
 	extern const uint32_t button_right;
