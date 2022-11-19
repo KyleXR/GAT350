@@ -21,6 +21,16 @@ namespace neu
 		// get program resource 
 		m_program = neu::g_resources.Get<neu::Program>(program);
 
+		// read cube map
+		std::string cubemap;
+		READ_DATA(document, cubemap);
+		if (!cubemap.empty())
+		{
+			std::string cubemap_extension;
+			READ_DATA(document, cubemap_extension);
+			m_textures.push_back(neu::g_resources.Get<neu::CubemapTexture>(cubemap, cubemap_extension));
+		}
+
 		// read the texture name 
 		std::vector<std::string> textures;
 		READ_DATA(document, textures);

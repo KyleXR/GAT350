@@ -1,7 +1,19 @@
 {
-      "clear_color": [ 0, 0, 0 ],
-      "ambient_color": [ 0.2, 0.2, 0.2 ],
+  "clear_color": [ 0, 0, 0 ],
+  "ambient_color": [ 0.2, 0.2, 0.2 ],
   "actors": [
+    {
+      "type": "Actor",
+      "name": "Skybox",
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/cube.obj",
+          "material_name": "Materials/skybox.mtrl",
+          "depth_test":  false
+        }
+      ]
+    },
     {
       "type": "Actor",
       "name": "Ogre",
@@ -32,74 +44,13 @@
     },
     {
       "type": "Actor",
-      "name": "Rock",
+      "name": "Light2",
+      "active": true,
       "transform": {
         "position": [
-          0,
-          -0.05,
-          0
-        ],
-        "scale": [
-          20,
-          20,
-          20
-        ],
-        "rotation": [
-          180,
-          0,
-          0
-        ]
-      },
-      "components": [
-        {
-          "type": "ModelComponent",
-          "model_name": "Models/plane.obj",
-          "material_name": "Materials/rock.mtrl"
-        }
-      ]
-    },
-    {
-      "type": "Actor",
-      "name": "Light1",
-      "transform": {
-        "position": [
-          0,
+          5,
           3,
           1
-        ],
-        "rotation": [
-          85,
-          0,
-          0
-        ]
-      },
-      "components": [
-        {
-          "type": "LightComponent",
-          "color": [
-            1,
-            0,
-            0
-          ],
-          "type_name": "directional",
-          "cutoff": 25.0,
-          "exponent": 10.0
-        }
-      ]
-    },
-    {
-      "type": "Actor",
-      "name": "Light2",
-      "transform": {
-        "position": [
-          0,
-          1,
-          2
-        ],
-        "rotation": [
-          0,
-          0,
-          0
         ]
       },
       "components": [
@@ -118,7 +69,7 @@
     },
     {
       "type": "Actor",
-      "name": "Light3",
+      "name": "Light",
       "transform": {
         "position": [
           0,
@@ -135,13 +86,13 @@
         {
           "type": "LightComponent",
           "color": [
-            0,
-            0,
+            1,
+            1,
             1
           ],
           "type_name": "point",
-          "cutoff": 25.0,
-          "exponent": 10.0
+          "cutoff": 45.0,
+          "exponent": 50.0
         }
       ]
     },

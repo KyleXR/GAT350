@@ -92,19 +92,19 @@ namespace neu
     void Program::SetUniform(const std::string& name, int value)
     {
         GLint uniform = GetUniform(name);
-        if (uniform != -1) glUniform1f(uniform, value);
+        if (uniform != -1) glUniform1i(uniform, value);
     }
 
     void Program::SetUniform(const std::string& name, unsigned int value)
     {
         GLint uniform = GetUniform(name);
-        if (uniform != -1) glUniform1f(uniform, value);
+        if (uniform != -1) glUniform1ui(uniform, value);
     }
 
     void Program::SetUniform(const std::string& name, bool value)
     {
         GLint uniform = GetUniform(name);
-        if (uniform != -1) glUniform1f(uniform, value);
+        if (uniform != -1) glUniform1i(uniform, value);
     }
 
     void Program::SetUniform(const std::string& name, const glm::vec2& value)

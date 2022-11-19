@@ -18,10 +18,11 @@ int main(int argc, char** argv)
 	neu::g_gui.Initialize(neu::g_renderer);
 
 	// Load Scene 
-	auto scene = neu::g_resources.Get<neu::Scene>("scenes/texture.scn");
+	auto scene = neu::g_resources.Get<neu::Scene>("scenes/Test.scn");
 
-	glm::vec3 pos{ 0, 0, 0 };
-
+	glm::vec3 rot{ 0, 0, 0 };
+	float interpolation = 0.5f;
+	float refractiveIndex = 1.0f;
 	bool quit = false;
 	while (!quit)
 	{
@@ -33,29 +34,41 @@ int main(int argc, char** argv)
 		auto actor1 = scene->GetActorFromName <neu::Actor>("Ogre");
 		auto actor2 = scene->GetActorFromName <neu::Actor>("Rock");
 
-		/*if (actor1)
+		if (actor1)
 		{
-			actor1->m_transform.rotation.y += neu::g_time.deltaTime * 90.0f;
-		}*/
+			actor1->m_transform.rotation = Math::EulerToQuaternion(rot);
+		}
 
 		actor1 = scene->GetActorFromName("Light");
 		if (actor1)
 		{
 			// move light using sin wave 
-			actor1->m_transform.position = pos;
+			//actor1->m_transform.position = os;
+		}
+
+
+		auto program = neu::g_resources.Get<neu::Program>("shaders/fx/reflection_refraction.prog");
+		if (program)
+		{
+			program->Use();
+			program->SetUniform("Interpolation", interpolation);
+			program->SetUniform("RI", refractiveIndex);
 		}
 
 		ImGui::Begin("Hello");
 		ImGui::Button("Press Me");
-		ImGui::SliderFloat3("Position", &pos[0], -5.0f, 5.0f);
+		ImGui::DragFloat3("Rotation", &rot[0]);
+		ImGui::DragFloat("RI", &refractiveIndex, 0.01f, 1, 3);
+		ImGui::DragFloat("Interpolation", &interpolation, 0.01f, 0, 1);
 		ImGui::End();
 
 		scene->Update();
 
 		neu::g_renderer.BeginFrame();
 
+		scene->PreRender(neu::g_renderer);
+		scene->Render(neu::g_renderer);
 
-		scene->Draw(neu::g_renderer);
 		neu::g_gui.Draw();
 
 		neu::g_renderer.EndFrame();

@@ -23,8 +23,8 @@ namespace neu
 
 		bool CreateFromSurface(SDL_Surface* surface, Renderer& renderer);
 
-		bool Load(Renderer& renderer, const std::string& filename);
-
+		bool Load(const std::string& filename);
+		static GLenum GetInternalFormat(GLuint format);
 		void SetActive(GLuint unit) { glActiveTexture(unit); }
 		void Bind() { glBindTexture(m_target, m_texture); }
 
@@ -32,10 +32,10 @@ namespace neu
 
 		friend class Renderer;
 
-	private:
+	protected:
 		void FlipSurface(SDL_Surface* surface);
 
-	private:
+	protected:
 		GLuint m_texture = 0;
 		GLenum m_target = GL_TEXTURE_2D;
 	};

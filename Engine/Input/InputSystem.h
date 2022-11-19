@@ -1,4 +1,5 @@
 #pragma once
+#include "Math/MathUtils.h"
 #include <cstdint>
 #include <vector>
 #include <array>
@@ -31,7 +32,8 @@ namespace neu
 		bool GetPreviousKeyDown(uint32_t key) { return m_prevKeyboardState[key]; }
 
 	public:
-		const Vector2& GetMousePosition() const { return m_mousePosition; }
+		const glm::vec2& GetMousePosition() const { return m_mousePosition; }
+		const glm::vec2& GetMouseRelative() const { return m_mouseRelative; }
 
 		State GetButtonState(uint32_t button);
 		bool GetButtonDown(uint32_t button) { return m_mouseButtonState[button]; }
@@ -44,7 +46,9 @@ namespace neu
 		std::vector<uint8_t> m_prevKeyboardState;
 
 	private:
-		Vector2 m_mousePosition;
+		glm::vec2 m_mousePosition;
+		glm::vec2 m_prevMousePosition;
+		glm::vec2 m_mouseRelative;
 
 		std::array<uint8_t, 3> m_mouseButtonState;
 		std::array<uint8_t, 3> m_prevMouseButtonState;

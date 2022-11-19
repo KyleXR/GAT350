@@ -24,7 +24,10 @@ namespace neu
 
 		void Initialize() override;
 		void Update() override; 
-		void Draw(Renderer& renderer);
+
+		void PreRender(Renderer& renderer);
+		void Render(Renderer& renderer);
+
 		virtual bool Create(const std::string name, ...) override;
 
 		virtual bool Write(const rapidjson::Value& value) const override;
