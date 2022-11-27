@@ -151,6 +151,7 @@
     <None Include="..\Build\Assets\Materials\reflection_refraction.mtrl" />
     <None Include="..\Build\Assets\Materials\refraction.mtrl" />
     <None Include="..\Build\Assets\Materials\rock.mtrl" />
+    <None Include="..\Build\Assets\Materials\rtt.mtrl" />
     <None Include="..\Build\Assets\Materials\skybox.mtrl" />
     <None Include="..\Build\Assets\Materials\spot.mtrl" />
     <None Include="..\Build\Assets\Materials\tortiose.mtrl" />
@@ -158,6 +159,7 @@
     <None Include="..\Build\Assets\Scenes\Basic_lit.scn" />
     <None Include="..\Build\Assets\Scenes\Basic_Scn.scn" />
     <None Include="..\Build\Assets\Scenes\Cubemap.scn" />
+    <None Include="..\Build\Assets\Scenes\rtt.scn" />
     <None Include="..\Build\Assets\Scenes\Test.scn" />
     <None Include="..\Build\Assets\Scenes\texture.scn" />
     <None Include="..\Build\Assets\Shaders\basic.frag" />

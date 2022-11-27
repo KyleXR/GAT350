@@ -200,5 +200,11 @@
     <None Include="..\Build\Assets\Materials\reflection_refraction.mtrl">
       <Filter>Resource Files\Assets\Materials</Filter>
     </None>
+    <None Include="..\Build\Assets\Scenes\rtt.scn">
+      <Filter>Resource Files\Assets\Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\rtt.mtrl">
+      <Filter>Resource Files\Assets\Materials</Filter>
+    </None>
   </ItemGroup>
 </Project>
