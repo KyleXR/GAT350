@@ -26,18 +26,20 @@ namespace neu
 		void Initialized();
 		void Shutdown();
 
-		void CreateWindow(const char* name, int width, int height, bool fullscreen);
+		void CreateWindow(const std::string& name, int width, int height, bool fullscreen = false);
 		void BeginFrame();
 		void EndFrame();
 		
+		void SetViewport(int x, int y, int width, int height);
+		void RestoreViewport();
 
 		void DrawLine(float x1, float y1, float x2, float y2);
 		void DrawLine(const Vector2& v1, const Vector2& v2, const Color& color);
 		void DrawPoint(float x, float y);
 		void DrawPoint(const Vector2& v, const Color& color);
 
-		int GetWidth() { return m_width; }
-		int GetHeight() { return m_height; }
+		int GetWidth() { return width; }
+		int GetHeight() { return height; }
 
 		void Draw(std::shared_ptr<Texture> texture, const Vector2& position, float angle = 0, const Vector2& scale = Vector2{1,1}, const Vector2& registration = Vector2{0.5f, 0.5f});
 		void Draw(std::shared_ptr<Texture> texture, const Transform& transform, const Vector2& registration = Vector2{ 0.5f, 0.5f });
@@ -57,9 +59,11 @@ namespace neu
 		glm::vec3 clear_color{ 0, 0, 0 };
 		glm::vec3 ambient_color{ 0, 0, 0 };
 
+		int width = 800;
+		int height = 600;
+		bool fullscreen = false;
+
 	private:
-		int m_width = 0;
-		int m_height = 0;
 
 		glm::mat4 m_view{ 1 };
 		glm::mat4 m_projection{ 1 };

@@ -34,6 +34,9 @@
     <Filter Include="Resource Files\Assets\Shaders\FX">
       <UniqueIdentifier>{0c769024-e576-4b03-afaa-5bc0015be555}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Assets\Shaders\PostProcess">
+      <UniqueIdentifier>{0427c4e4-0eab-40a5-8202-03293c7f6519}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -204,6 +207,18 @@
       <Filter>Resource Files\Assets\Scenes</Filter>
     </None>
     <None Include="..\Build\Assets\Materials\rtt.mtrl">
+      <Filter>Resource Files\Assets\Materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\PostProcess\postprocess.frag">
+      <Filter>Resource Files\Assets\Shaders\PostProcess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\PostProcess\postprocess.prog">
+      <Filter>Resource Files\Assets\Shaders\PostProcess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\PostProcess\postprocess.vert">
+      <Filter>Resource Files\Assets\Shaders\PostProcess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\postprocess.mtrl">
       <Filter>Resource Files\Assets\Materials</Filter>
     </None>
   </ItemGroup>
